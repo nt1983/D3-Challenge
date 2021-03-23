@@ -97,8 +97,11 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 
   var toolTip = d3.tip()
     .attr("class", "tooltip")
-    .offset([100, -60])
+    .offset([90, -60])
     .html(function(d) {
+      if (chosenXAxis==="age"){
+        return (`${d.state}<br>${xlabel} ${d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}`);
+      }
       return (`${d.rockband}<br>${label} ${d[chosenXAxis]}`);
     });
 
