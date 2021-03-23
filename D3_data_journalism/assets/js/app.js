@@ -96,7 +96,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
   }
   else {var xlabel="Age ";}
 
-  if (chosenYAxis==="obese") {
+  if (chosenYAxis==="obesity") {
     var ylabel="Obesity ";
   }
   else if (chosenYAxis==="smokes") {
@@ -110,6 +110,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
     .style("color", "white")
     .offset([80, -60])
     .html(function(d) {
+      console.log(chosenXAxis, xlabel, chosenYAxis, ylabel);
       if (chosenXAxis==="age"){
         return (`${d.state}<br>${xlabel} ${d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%`);
       }
@@ -260,6 +261,9 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 
         // updates tooltips with new info
         circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+
+        // Update circles text with new values.
+        circletextGroup = renderText(circletextGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
 
         // changes classes to bold text
         if (chosenXAxis === "poverty") {
