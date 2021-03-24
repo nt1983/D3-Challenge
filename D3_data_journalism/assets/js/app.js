@@ -105,7 +105,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
   else {var ylabel="Lacks Healthcare ";}
 
   var toolTip = d3.tip()
-    .attr("class", "tooltip")
+    .attr("class", "d3-tip")
     .style("background", "black")
     .style("color", "white")
     .offset([80, -60])
